@@ -5,6 +5,8 @@ The commands are named in German to avoid confusion with predefined LaTeX- and T
 
 ## Example:
 
+Either in plain LaTeX or within a TeX-area inside LyX:
+
 ```
 \input{vectors.tikz}
 
