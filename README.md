@@ -22,3 +22,25 @@ Either in plain LaTeX or within a TeX-area inside LyX:
 	\vektor{$\vec{v}$}{A}{B}{pos=0.5, above};
 \end{tikzpicture}
 ```
+or
+```
+\input{vectors.tikz}
+
+\begin{tikzpicture}
+	\achsen{0}{6.5}{0}{9.5}{0}{4.5};
+
+	\punkt{A}{6}{3}{0}{left};
+	\punkt{B}{6}{9}{0}{right};
+	\punkt{C}{2}{9}{0}{right};
+	\punkt{D}{2}{3}{0}{left};
+	\punkt{S}{4}{4.5}{4}{above};
+
+	\draw (A) to (B) to (C);
+	\draw[dashed] (A) to (D) to (C);
+
+	\draw (A) to (S);
+	\draw (B) to (S);
+	\draw (C) to (S);
+	\draw (D) to (S);
+\end{tikzpicture}
+```
