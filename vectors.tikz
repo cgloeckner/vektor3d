@@ -1,0 +1,63 @@
+% requires decorations.markings
+
+\newcommand{\achsen}[6] {
+	% x from #1 to #2
+	\draw[decoration={markings,mark=at position 1 with {\arrow[scale=1.0,>=stealth]{>}}},postaction={decorate}] (- #1 / 2, - #1 / 2) to (- #2 / 2, - #2 / 2);
+	\pgfmathsetmacro\minx{int(ceil(#1))};
+	\pgfmathsetmacro\maxx{int(floor(#2))};
+	\foreach \x in {\minx, ..., \maxx} {
+		\if\x0\else
+			\draw (-\x / 2 - 0.0375, -\x / 2 + 0.0375) to (-\x / 2 + 0.0375, -\x / 2 - 0.0375);
+		\fi
+	}
+	\node[label=below left:$x$] at (- #2 / 2, - #2 / 2) {};
+
+	% y from #3 to #4
+	\draw[decoration={markings,mark=at position 1 with {\arrow[scale=1.0,>=stealth]{>}}},postaction={decorate}] (#3, 0) to (#4, 0);
+	\pgfmathsetmacro\miny{int(ceil(#3))};
+	\pgfmathsetmacro\maxy{int(floor(#4))};
+	\foreach \y in {\miny, ..., \maxy} {
+		\if\y0\else
+			\draw (\y, -0.05) to ++(0, 0.1);
+		\fi
+	}
+	\node[label=right:$y$] at (#4, 0) {};
+
+	% z from #5 to #6
+	\draw[decoration={markings,mark=at position 1 with {\arrow[scale=1.0,>=stealth]{>}}},postaction={decorate}] (0, #5) to (0, #6);
+	\pgfmathsetmacro\minz{int(ceil(#5))};
+	\pgfmathsetmacro\maxz{int(floor(#6))};
+	\foreach \z in {\minz, ..., \maxz} {
+		\if\z0\else
+			\draw (-0.05, \z) to ++(0.1, 0);
+		\fi
+	}
+	\node[label=above:$z$] at (0, #6) {};
+}
+
+\newcommand{\punkt}[5] {
+	% map 3d coord (#2, #3, #4) to 2d coord
+	\def\x{#3 - #2 / 2};
+	\def\y{#4 - #2 / 2};
+	
+	\coordinate (COORD_#1) at (\x, \y);
+	\node[label=#5:#1] at (\x, \y) {$\times$};
+	
+	% filled circle as point
+	%\draw[fill=black] (\x, \y) circle (0.05);
+	%\node[label=#4] at (\x, \y) {};
+}
+
+\newcommand{\vektor}[4] {
+	% vector named #1 between points #2 and #3
+	% label alignment via #5
+	\draw[
+		decoration={
+			markings,
+			mark=at position 1 with {\arrow[
+				scale=1.0,
+				>=stealth]{>}}
+			},
+		postaction={decorate}
+	] (COORD_#2) -- (COORD_#3) node [#4] {#1};
+}
