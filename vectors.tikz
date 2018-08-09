@@ -40,7 +40,7 @@
 	\def\x{#3 - #2 / 2};
 	\def\y{#4 - #2 / 2};
 	
-	\coordinate (COORD_#1) at (\x, \y);
+	\coordinate (#1) at (\x, \y);
 	\node[label=#5:#1] at (\x, \y) {$\times$};
 	
 	% filled circle as point
@@ -59,5 +59,5 @@
 				>=stealth]{>}}
 			},
 		postaction={decorate}
-	] (COORD_#2) -- (COORD_#3) node [#4] {#1};
+	] (#2) -- (#3) node [#4] {#1};
 }
