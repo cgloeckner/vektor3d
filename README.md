@@ -44,3 +44,25 @@ or
 	\draw (D) to (S);
 \end{tikzpicture}
 ```
+or
+```
+\input{vektoren.tikz}
+
+\begin{tikzpicture}[scale=0.9]
+	\achsen{-1.5}{6.5}{-1.5}{8.5}{-1.5}{4.5};
+
+	\punkt{A}{6}{3}{0}{left};
+	\punkt{B}{6}{9}{0}{right};
+	\punkt{C}{2}{9}{0}{right};
+	\punkt{D}{2}{3}{0}{left};
+	\punkt{S}{4}{6}{4}{above};
+
+	\draw (A) to (B) to (C);
+	\draw[dashed] (A) to (D) to (C);
+
+	\draw (A) to (S);
+	\draw (B) to (S);
+	\draw (C) to (S);
+	\draw (D) to (S);
+\end{tikzpicture}
+```
