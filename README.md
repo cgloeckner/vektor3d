@@ -48,14 +48,17 @@ or
 ```
 \input{vektoren.tikz}
 
-\begin{tikzpicture}[scale=0.9]
-	\achsen{-1.5}{6.5}{-1.5}{8.5}{-1.5}{4.5};
+\begin{tikzpicture}[scale=0.6]
+	\achsen{-1.5}{6.5}{-1.5}{8.5}{-1.5}{2.5};
 
 	\punkt{A}{6}{3}{0}{left};
 	\punkt{B}{6}{9}{0}{right};
 	\punkt{C}{2}{9}{0}{right};
 	\punkt{D}{2}{3}{0}{left};
 	\punkt{S}{4}{6}{4}{above};
+
+	\punkt{M_1}{4}{9}{0}{right};
+	\punkt{M_2}{4}{3}{0}{left};
 
 	\draw (A) to (B) to (C);
 	\draw[dashed] (A) to (D) to (C);
@@ -64,5 +67,8 @@ or
 	\draw (B) to (S);
 	\draw (C) to (S);
 	\draw (D) to (S);
+
+	\draw[red] (S) to (M_1) to (M_2);
+	\draw pic["$\gamma$", draw] {angle=S--M_1--M_2};
 \end{tikzpicture}
 ```
