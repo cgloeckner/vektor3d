@@ -46,7 +46,7 @@ or
 ```
 or
 ```
-\input{vektoren.tikz}
+\input{vectors.tikz}
 
 \begin{tikzpicture}[scale=0.6]
 	\achsen{-1.5}{6.5}{-1.5}{8.5}{-1.5}{2.5};
