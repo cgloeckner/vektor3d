@@ -61,3 +61,10 @@
 		postaction={decorate}
 	] (#2) -- (#3) node [#4] {#1};
 }
+
+\newcommand{\gerade}[3] {
+	% draw line from (#1) to (#2) extending by #3 (kind of multiplier)
+	% where #3 = 1 means directly using the given points
+	% and #3 = 2 means extending to both ends by the distance of the points
+	\draw ($(#1)!-#3+1!(#2)$) to ($(#1)!#3!(#2)$);
+}
