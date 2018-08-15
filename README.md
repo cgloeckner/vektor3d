@@ -1,6 +1,11 @@
 # vektor3d
 LaTeX / TikZ extension for showing 3D vectors. Just download the `vectors.tikz` and try out the examples below.
 
+```
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+```
+
 Note, that the commands are named in German to avoid confusion with predefined LaTeX- and TikZ-commands. This won't change in future because I'm lazy :D
 
 ## Example:
