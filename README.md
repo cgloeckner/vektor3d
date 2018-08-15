@@ -77,3 +77,25 @@ or
 	\draw pic["$\gamma$", draw] {angle=S--M_1--M_2};
 \end{tikzpicture}
 ```
+or
+```
+\begin{tikzpicture}[scale=0.5]
+	%\achsen{-1.5}{3.5}{-1.5}{3.5}{-1.5}{3.5};
+
+	\punkt{A}{12}{-3}{-3}{left};
+	\punkt{B}{9}{9}{0}{right};
+	\punkt{C}{9}{0}{9}{above};
+	\punkt{S}{15}{3}{3}{left};
+
+	\punkt{P}{8}{7}{7}{above};
+	\punkt{Q}{4}{14}{11}{below};
+
+	% clip required to limit line to the scene
+	\clip (-12, -10) rectangle (15, 10);
+	\gerade{P}{Q}{3};
+
+	\draw (A) to (B) to (C) to cycle;
+	\draw[dashed] (A) to (S) to (C);
+	\draw[dashed] (B) to (S);
+\end{tikzpicture}
+```
